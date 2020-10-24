@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let cat = {
+        name: "Garfild",
+        normalweight: 5,
+      };
+
+      let w;
+      cat.Norm = function (w) {
+        if (w > this.normalweight) {
+          cat.Diet(w);
+        } else if (w < this.normalweight) {
+          cat.Feeding(w);
+        }
+      };
+      cat.Feeding = function (w) {
+        let f = this.normalweight - w;
+        alert("Кот толстеет на " + f);
+        for (w; w < this.normalweight; w++) {
+          let k = this.normalweight - w;
+          alert("Коту нужно набрать еще " + k + "кг");
+        }
+        alert("Теперь вес кота " + w);
+      };
+      cat.Diet = function (w) {
+        let d = w - this.normalweight;
+        alert("Кот худеет на " + d);
+        for (w; w > this.normalweight; w--) {
+          let k = w - this.normalweight;
+          alert("Коту нужно сбросить еще " + k + "кг");
+        }
+        alert("Теперь вес кота " + w);
+      };
+      let weight = prompt("Вес кота");
+      cat.Norm(weight);
+    </script>
+  </body>
+</html>
